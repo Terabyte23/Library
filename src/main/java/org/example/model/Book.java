@@ -7,7 +7,7 @@ import java.util.UUID;
 public class Book {
     private UUID id;
     private String title;
-    private Author[] authors;
+    private Author[] authors = new Author[10];
     private int publishedYear;
 
     public Book() {
