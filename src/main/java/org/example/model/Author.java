@@ -4,35 +4,42 @@ import java.util.UUID;
 
 public class Author {
     private UUID id;
-    private String name;
-    private String surname;
+    private String authorName;
+    private String authorSurname;
 
     public Author() {
         this.id = UUID.randomUUID();
     }
 
-    public Author(String name, String surname) {
+    public Author(String authorName, String authorSurname) {
         this.id = UUID.randomUUID();
-        this.name = name;
-        this.surname = surname;
+        this.authorName = authorName;
+        this.authorSurname = authorSurname;
     }
 
-    public String getName() {
-        return name;
+    public String getAuthorSurname() {
+        return authorSurname;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setAuthorSurname(String authorSurname) {
+        this.authorSurname = authorSurname;
     }
 
-    public String getSurname() {
-        return surname;
+    public String getAuthorName() {
+        return authorName;
     }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
+    public void setAuthorName(String authorName) {
+        this.authorName = authorName;
     }
 
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -40,21 +47,23 @@ public class Author {
         if (o == null || getClass() != o.getClass()) return false;
 
         Author author = (Author) o;
-        return name.equals(author.name) && surname.equals(author.surname);
+        return id.equals(author.id) && authorName.equals(author.authorName) && authorSurname.equals(author.authorSurname);
     }
 
     @Override
     public int hashCode() {
-        int result = name.hashCode();
-        result = 31 * result + surname.hashCode();
+        int result = id.hashCode();
+        result = 31 * result + authorName.hashCode();
+        result = 31 * result + authorSurname.hashCode();
         return result;
     }
 
     @Override
     public String toString() {
-        return "Autor{" +
-                "name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
+        return "Author{" +
+                "id=" + id +
+                ", authorName='" + authorName + '\'' +
+                ", authorSurname='" + authorSurname + '\'' +
                 '}';
     }
 }
